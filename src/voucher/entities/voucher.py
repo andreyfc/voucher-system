@@ -41,3 +41,7 @@ class Voucher:
         if self.max_usage > 0 and self.times_used >= self.max_usage:
             self.status = "inactive"
         
+    def expire(self) -> None:
+        if datetime.now() > self.expiration_date:
+            self.status = 'expired'
+    
